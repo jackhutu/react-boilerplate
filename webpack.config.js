@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const env = process.env.NODE_ENV || 'development'
 const debug = env !== 'production'
@@ -36,6 +37,12 @@ const config = {
     //   name: 'vendor',
     //   minChunks: Infinity //Infinity
     // }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: debug?'[name].style.css':'[hash:8].style.css', 
+      chunkFilename: '[id].css'
+    }),    
     // new ExtractTextPlugin({ 
     //   filename: debug?'[name].style.css':'[hash:8].style.css', 
     //   disable: false, allChunks: true 
@@ -63,10 +70,15 @@ const config = {
       },
       { 
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: debug
+            }
+          },
+          'css-loader'
+        ]
       },
       {
         test: /\.less$/,
