@@ -1,11 +1,16 @@
 {
-  "presets": [["env",{
+  "presets": [["@babel/preset-env",{
     "targets": {
       "browsers": ["> 5%","ie > 9"],
       "uglify": true
     }
-  }], ["react"]],
-  "plugins": ["transform-decorators-legacy","syntax-async-functions","transform-object-rest-spread","transform-class-properties"],
+  }], ["@babel/preset-react"]],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-syntax-decorators", {"decoratorsBeforeExport":true}],
+    "@babel/plugin-syntax-async-generators","@babel/plugin-syntax-object-rest-spread", 
+    ["@babel/plugin-proposal-class-properties", {"loose": true}]
+  ],
   "comments": false,
   "env":{
     "development":{

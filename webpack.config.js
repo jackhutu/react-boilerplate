@@ -1,9 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const env = process.env.NODE_ENV || 'development'
@@ -33,14 +32,14 @@ const config = {
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
-    new CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity //Infinity
-    }),
-    new ExtractTextPlugin({ 
-      filename: debug?'[name].style.css':'[hash:8].style.css', 
-      disable: false, allChunks: true 
-    }),   
+    // new CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunks: Infinity //Infinity
+    // }),
+    // new ExtractTextPlugin({ 
+    //   filename: debug?'[name].style.css':'[hash:8].style.css', 
+    //   disable: false, allChunks: true 
+    // }),   
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'src/favicon.ico'),
       title: 'react boilerplate',
@@ -155,10 +154,10 @@ const config = {
 }
 
 if (debug) {
-  config.plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  )
+  // config.plugins.push(
+  //   new webpack.HotModuleReplacementPlugin(),
+  //   new webpack.NoEmitOnErrorsPlugin()
+  // )
   config.devServer = {
     contentBase: path.join(__dirname, 'src'),
     port: 3000,
@@ -188,9 +187,9 @@ if (debug) {
   }
 
 } else {
-  config.plugins.push(  
-    new UglifyJSPlugin()
-  )
+  // config.plugins.push(  
+  //   new UglifyJSPlugin()
+  // )
 }
 
 module.exports = config

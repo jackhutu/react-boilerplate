@@ -1,11 +1,11 @@
-import {ArticleResource} from './resources'
+import {AuthResource} from './resources'
 
 export default {
   getApps:function () {
-    return ArticleResource('get','getApps')
+    return AuthResource('get','getApps')
   },
   //article
   getIndexImage:function () {
-    return ArticleResource('get', 'getIndexImage')
+    return AuthResource('get', 'getIndexImage')
   }
 }
