@@ -32,7 +32,7 @@ export default class App extends Component {
     actions: PropTypes.object.isRequired,
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
 
   }
   

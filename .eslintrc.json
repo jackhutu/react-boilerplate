@@ -14,12 +14,13 @@
   "extends": ["eslint:recommended","plugin:react/recommended"],
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 7,
+    "ecmaVersion": 8,
     "ecmaFeatures": {
       "globalReturn": true,
       "impliedStrict": true,
       "experimentalObjectRestSpread":true,
-      "jsx": true
+      "jsx": true,
+      "legacyDecorators": true
     }
   },
   "parser": "babel-eslint",

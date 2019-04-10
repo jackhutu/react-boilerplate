@@ -10,7 +10,7 @@ export default class toaster extends Component{
     hideMsg: PropTypes.func.isRequired,
     msg: PropTypes.object
   }
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     const { msg } = nextProps
     const { hideMsg } = this.props
     if(msg.content !== '' && msg.type){
