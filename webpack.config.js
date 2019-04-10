@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -11,6 +10,7 @@ const debug = env !== 'production'
 
 const config = {
   devtool: debug ? 'cheap-module-source-map' : 'hidden-source-map',
+  mode: 'none',
   name: 'browser',
   entry: {
     vendor: ['react','redux','react-redux','react-router-redux','react-router-dom','react-router-config'],
@@ -42,11 +42,7 @@ const config = {
       // both options are optional
       filename: debug?'[name].style.css':'[hash:8].style.css', 
       chunkFilename: '[id].css'
-    }),    
-    // new ExtractTextPlugin({ 
-    //   filename: debug?'[name].style.css':'[hash:8].style.css', 
-    //   disable: false, allChunks: true 
-    // }),   
+    }),     
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'src/favicon.ico'),
       title: 'react boilerplate',

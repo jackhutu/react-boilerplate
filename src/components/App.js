@@ -19,8 +19,8 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-@connect(mapStateToProps,mapDispatchToProps)
-export default class App extends Component {
+// @connect(mapStateToProps,mapDispatchToProps)
+class App extends Component {
   constructor(props){
     super(props)
   }
@@ -30,10 +30,6 @@ export default class App extends Component {
     local: PropTypes.object.isRequired,
     showmsg: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
-  }
-
-  UNSAFE_componentWillReceiveProps(nextProps){
-
   }
   
   render() {
@@ -46,3 +42,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
