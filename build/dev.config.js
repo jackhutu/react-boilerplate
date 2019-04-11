@@ -9,7 +9,7 @@ const config = {
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      __DEVTOOLS__: false,
+      __DEVTOOLS__: true,
       __DEVLOGGER__: true
     }),
     new webpack.HotModuleReplacementPlugin()
