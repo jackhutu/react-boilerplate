@@ -9,8 +9,7 @@ import createDevTools from './createDevtools'
 import routes from './routes'
 import 'assets/styles/index.css'
 
-const initialState = {}
-const store = configureStore(initialState)
+const store = configureStore()
 createDevTools(store)
 
 render(

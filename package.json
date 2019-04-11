@@ -5,9 +5,9 @@
   "repository": "https://github.com/jackhutu/react-boilerplate",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --open --progress --profile --watch --color",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode=development --open --progress --profile --watch --color",
     "build": "npm-run-all clean --parallel compile",
-    "compile": "cross-env NODE_ENV=production webpack --progress --profile --bail",
+    "compile": "cross-env NODE_ENV=production webpack --mode=production --progress --profile --bail --color",
     "clean": "rimraf dist"
   },
   "bugs": {
@@ -63,6 +63,7 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "npm-run-all": "4.1.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-hot-loader": "^4.8.3",
     "rimraf": "2.6.2",
     "sass-loader": "^7.1.0",
@@ -71,6 +72,7 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "webpack-merge": "^4.2.1"
   }
 }
