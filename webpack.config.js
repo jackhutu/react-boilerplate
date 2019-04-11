@@ -9,11 +9,10 @@ const env = process.env.NODE_ENV || 'development'
 const debug = env !== 'production'
 
 const config = {
-  devtool: debug ? 'cheap-module-source-map' : 'hidden-source-map',
-  mode: 'none',
-  name: 'browser',
+  mode: 'development',
+  devtool: debug ? 'cheap-module-eval-source-map' : 'hidden-source-map',
   entry: {
-    vendor: ['react','redux','react-redux','react-router-redux','react-router-dom','react-router-config'],
+    vendor: ['react','react-dom','react-router', 'redux','react-redux','react-router-redux','react-router-dom','react-router-config'],
     bundle: './src/index'
   },
   output: {
@@ -162,16 +161,16 @@ const config = {
 }
 
 if (debug) {
-  // config.plugins.push(
-  //   new webpack.HotModuleReplacementPlugin(),
-  //   new webpack.NoEmitOnErrorsPlugin()
-  // )
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  )
   config.devServer = {
-    contentBase: path.join(__dirname, 'src'),
+    contentBase: [path.join(__dirname, 'src'),path.join(__dirname, 'dist')],
     port: 3000,
     host: 'localhost',
     historyApiFallback: true,
-    inline: true,
+    // inline: true,
     hot: true,
     watchOptions: {
       aggregateTimeout: 300,
@@ -199,5 +198,6 @@ if (debug) {
   //   new UglifyJSPlugin()
   // )
 }
+
 
 module.exports = config

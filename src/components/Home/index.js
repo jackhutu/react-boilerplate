@@ -6,7 +6,7 @@ import * as Actions from 'actions'
 
 const mapStateToProps = state =>{
   return {
-    local: state.local.toJS()
+    local: state.local
   }
 }
 

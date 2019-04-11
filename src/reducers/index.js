@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { connectRouter } from 'connected-react-router'
 import { reducer as formReducer } from 'redux-form'
 import apps from './apps'
-import showmsg from './showmsg'
 import local from './local'
 
-const rootReducer = combineReducers({
+
+const rootReducer = (history) => combineReducers({
+  form: formReducer,
   local,
   apps,
-  showmsg,
-  router: routerReducer,
-  form: formReducer
+  router: connectRouter(history)
 })
 
 export default rootReducer
+

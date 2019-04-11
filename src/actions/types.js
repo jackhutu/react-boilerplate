@@ -8,6 +8,3 @@ export const GET_APPS = 'GET_APPS'
 export const GET_APPS_SUCCESS = 'GET_APPS_SUCCESS'
 export const GET_APPS_FAILURE = 'GET_APPS_FAILURE'
 export const GET_APPS_REQUEST = 'GET_APPS_REQUEST'
-
-export const SHOW_MSG = 'SHOW_MSG'
-export const HIDE_MSG = 'HIDE_MSG'
