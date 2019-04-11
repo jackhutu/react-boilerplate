@@ -5,11 +5,14 @@ import {
 
 import img from 'assets/images/shanghai.jpg'
 
+const initialState = {
+  indexImg: img
+}
 
-export default function indexImg(state = img, action) {
+export default function(state = initialState, action) {
   switch(action.type){
     case GET_INDEX_IMG_SUCCESS:
-      return action.indexImg
+      return Object.assign({}, initialState, { indexImg: action.indexImg})
     case GET_INDEX_IMG_FAILURE:
     default: 
       return state
