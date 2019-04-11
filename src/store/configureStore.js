@@ -3,7 +3,6 @@ import thunkMiddleware from 'redux-thunk'
 import { routerMiddleware } from 'connected-react-router'
 // import {persistState} from 'redux-devtools'
 // import {createLogger} from 'redux-logger'
-// import {Iterable} from 'immutable'
 import promiseMiddleware from 'api/promiseMiddleware'
 // import DevTools from 'components/DevTools'
 import rootReducer from 'reducers'
@@ -25,18 +24,6 @@ export default function configureStore(initialState) {
     ),
   )
 
-
-  // const stateTransformer = (state) => {
-  //   const newSate = {}
-  //   Object.keys(state).forEach(x=>{
-  //     if(Iterable.isIterable(state[x])){
-  //       newSate[x] = state[x].toJS()
-  //     }else{
-  //       newSate[x] = state[x]
-  //     }
-  //   })
-  //   return newSate
-  // }
   // const middleware = [ thunkMiddleware, promiseMiddleware, routerMiddleware(history) ]
   // let finalCreateStore
 
