@@ -99,7 +99,6 @@ const config = {
           }
         }]
       },      
-      { test: /\.json$/, use: ['json-loader'] },
     ],
   },
   resolve: {
