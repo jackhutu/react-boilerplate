@@ -14,6 +14,12 @@ const config = {
     chunkFilename: '[name].[chunkhash].js',
     publicPath: '/'
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].style.css', 
+      chunkFilename: '[id].[contenthash:12].css'
+    })
+  ],
   module: {
     rules: [
       { 
@@ -45,6 +51,7 @@ const config = {
       new OptimizeCSSAssetsPlugin({})  // use OptimizeCSSAssetsPlugin
     ],
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
         styles: {            
           name: 'styles',
@@ -55,12 +62,7 @@ const config = {
       }
     }
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].style.css', 
-      chunkFilename: '[contenthash:12].css'
-    })
-  ]
+
 }
 
 

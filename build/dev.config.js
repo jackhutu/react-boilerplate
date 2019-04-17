@@ -7,7 +7,17 @@ const baseConfig = require('./base.config')
 const config = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
+  output: {
+    path: path.join(__dirname, '../dist'),
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    publicPath: '/'
+  },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].style.css', 
+      chunkFilename: '[id].css'
+    }), 
     new webpack.DefinePlugin({
       __DEVTOOLS__: true,
       __DEVLOGGER__: true
@@ -28,7 +38,7 @@ const config = {
                 // while for ./css/main.css the publicPath will be ../
                 return path.relative(path.dirname(resourcePath), context) + '/'
               },
-              reloadAll: true,
+              // reloadAll: true,
               hmr: true
             }
           },

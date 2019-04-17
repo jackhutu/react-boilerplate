@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
   context: path.join(__dirname, '..'),
@@ -8,17 +7,7 @@ const config = {
     vendor: ['react','react-dom','react-router', 'redux','react-redux','react-router-redux','react-router-dom','react-router-config'],
     bundle: './src/index', 
   },
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: '[name].js',
-    chunkFilename: '[name].js',
-    publicPath: '/'
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].style.css', 
-      chunkFilename: '[id].css'
-    }),     
+  plugins: [    
     new HtmlWebpackPlugin({
       favicon: path.join(__dirname, '../src/favicon.ico'),
       title: 'react boilerplate',
