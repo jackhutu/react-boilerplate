@@ -48,7 +48,7 @@ const config = {
     ],
   },
   devServer:{
-    contentBase: [path.join(__dirname, '../src'),path.join(__dirname, '../dist')],
+    contentBase: [path.join(__dirname, '../src')],
     port: 3000,
     host: 'localhost',
     historyApiFallback: true,
