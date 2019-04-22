@@ -9,8 +9,5 @@ npm-debug.log*
 ###############
 .DS_Store
 node_modules
-build.commond.md
 dist
-
-
 webpack.config.bak.js

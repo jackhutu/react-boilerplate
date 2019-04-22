@@ -30,13 +30,6 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
-      }, {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
         test: /\.(jpe?g|png|gif)$/i,
         use: [
           {
