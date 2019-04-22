@@ -73,7 +73,12 @@ const config = {
           test: /\.scss|css|less$/,
           chunks: 'all',    // merge all the css chunk to one file
           enforce: true
-        }
+        },
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|redux|react-redux|redux-form)[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        },
       }
     }
   },
