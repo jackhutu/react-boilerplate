@@ -75,8 +75,13 @@ const config = {
           enforce: true
         },
         commons: {
-          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|redux|react-redux|redux-form)[\\/]/,
+          // test: /[\\/]node_modules[\\/](react-router|react-router-dom|react-router-config|react-router-redux|redux-form)[\\/]/,
           name: 'vendors',
+          chunks: 'all'
+        },
+        reacts: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
+          priority: 10,
           chunks: 'all'
         },
       }

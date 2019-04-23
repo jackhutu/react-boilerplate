@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = {
   context: path.join(__dirname, '..'),
   entry: {
-    // vendor: ['react','react-dom','react-router', 'redux','react-redux','react-router-redux','react-router-dom','react-router-config'],
+    vendors: ['react','react-dom', 'redux','react-redux','react-router','react-router-redux','react-router-dom','react-router-config'],
     bundle: './src/index', 
   },
   plugins: [    
