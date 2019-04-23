@@ -6,7 +6,7 @@ const baseConfig = require('./base.config')
 
 const config = {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',

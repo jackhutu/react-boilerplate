@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -7,7 +8,7 @@ const baseConfig = require('./base.config')
 
 const config = {
   mode: 'production',
-  devtool: 'hidden-source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     path: path.join(__dirname, '..', 'dist'),
     filename: '[hash:8].[name].js',
@@ -18,7 +19,11 @@ const config = {
     new MiniCssExtractPlugin({
       filename: '[name].style.css', 
       chunkFilename: '[id].[contenthash:12].css'
-    })
+    }),
+    new webpack.DefinePlugin({
+      __DEVTOOLS__: false,
+      __DEVLOGGER__: false
+    }),
   ],
   module: {
     rules: [
@@ -70,20 +75,15 @@ const config = {
       cacheGroups: {
         styles: {            
           name: 'styles',
-          test: /\.scss|css|less$/,
+          test: /\.css$/,
           chunks: 'all',    // merge all the css chunk to one file
           enforce: true
         },
-        commons: {
-          // test: /[\\/]node_modules[\\/](react-router|react-router-dom|react-router-config|react-router-redux|redux-form)[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        },
-        reacts: {
-          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
-          priority: 10,
-          chunks: 'all'
-        },
+        // commons: {
+        //   test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+        //   name: 'reacts',
+        //   chunks: 'all'
+        // },
       }
     }
   },
