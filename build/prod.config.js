@@ -8,7 +8,7 @@ const baseConfig = require('./base.config')
 
 const config = {
   mode: 'production',
-  devtool: 'cheap-module-source-map',
+  devtool: 'hidden-source-map',
   output: {
     path: path.join(__dirname, '..', 'dist'),
     filename: '[hash:8].[name].js',
