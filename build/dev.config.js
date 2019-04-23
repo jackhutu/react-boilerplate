@@ -59,6 +59,11 @@ const config = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }    
+  },
   devServer:{
     contentBase: [path.join(__dirname, '../src')],
     port: 3000,
