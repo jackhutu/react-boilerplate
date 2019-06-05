@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getCookie,signOut } from 'utils/authService'
+import { getCookie,signOut } from 'utils/auth'
 
 axios.defaults.withCredentials = true
 
