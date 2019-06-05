@@ -56,7 +56,10 @@ const config = {
           },
           'css-loader',
           'postcss-loader',
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: { javascriptEnabled: true }
+          }
         ]
       },
     ],
