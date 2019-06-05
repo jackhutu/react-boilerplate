@@ -1,18 +1,20 @@
 import { createStore,compose,applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+// import thunkMiddleware from 'redux-thunk'
 import { routerMiddleware } from 'connected-react-router'
 import {persistState} from 'redux-devtools'
 import {createLogger} from 'redux-logger'
+import createSagaMiddleware from 'redux-saga'
 import promiseMiddleware from 'api/promiseMiddleware'
 import DevTools from 'components/DevTools'
 import rootReducer from 'reducers'
 import { createBrowserHistory } from 'history'
+const sagaMiddleware = createSagaMiddleware()
 
 export const history = createBrowserHistory()
 
 export default function configureStore(initialState) {
 
-  const middleware = [ thunkMiddleware, promiseMiddleware, routerMiddleware(history) ]
+  const middleware = [ sagaMiddleware, promiseMiddleware, routerMiddleware(history) ]
   if(__DEVLOGGER__){
     middleware.push(createLogger())
   }
