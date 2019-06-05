@@ -9,7 +9,7 @@ const config = {
   plugins: [    
     new HtmlWebpackPlugin({
       favicon: path.join(__dirname, '../src/favicon.ico'),
-      title: '开放平台-运营后台',
+      title: 'react boilerplate',
       template: path.join(__dirname, '../src/index.html'),
       inject:'body',
       hash:false,    //为静态资源生成hash值
