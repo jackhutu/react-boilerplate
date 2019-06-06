@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "browser": true,
     "es6": true,
@@ -44,7 +44,8 @@
       "never"
     ],
     "no-console": 0,
-    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    // "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "no-unused-vars": 0,
     "no-mixed-spaces-and-tabs": [0],
     "react/no-danger": 0,
     "react/display-name": 0,

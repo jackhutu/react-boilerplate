@@ -4,13 +4,15 @@ import { renderRoutes } from 'react-router-config'
 import { BrowserRouter } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import {Provider} from 'react-redux'
-import configureStore, { history } from './store/configureStore'
+import configureStore, { history, sagaMiddleware } from './store/configureStore'
 import createDevTools from './createDevtools'
 import routes from './routes'
 import 'assets/styles/index.css'
+import rootSaga from './sagas'
 
 const store = configureStore()
 createDevTools(store)
+sagaMiddleware.run(rootSaga)
 
 render(
   <Provider store={store}>

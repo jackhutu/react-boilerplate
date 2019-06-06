@@ -8,10 +8,9 @@ import promiseMiddleware from 'api/promiseMiddleware'
 import DevTools from 'components/DevTools'
 import rootReducer from 'reducers'
 import { createBrowserHistory } from 'history'
-const sagaMiddleware = createSagaMiddleware()
 
+export const sagaMiddleware = createSagaMiddleware()
 export const history = createBrowserHistory()
-
 export default function configureStore(initialState) {
 
   const middleware = [ sagaMiddleware, promiseMiddleware, routerMiddleware(history) ]

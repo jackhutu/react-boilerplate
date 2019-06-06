@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import './index.less'
 
 const NotFound = () => {
   return (
