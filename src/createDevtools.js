@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import DevTools from 'components/DevTools'
+import DevTools from 'components/devTools'
 
 export default function createDevTools(store) {
   if(__DEVTOOLS__ && !window.__REDUX_DEVTOOLS_EXTENSION__){

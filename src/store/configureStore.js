@@ -5,7 +5,7 @@ import {persistState} from 'redux-devtools'
 import {createLogger} from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import promiseMiddleware from 'api/promiseMiddleware'
-import DevTools from 'components/DevTools'
+import DevTools from 'components/devTools'
 import rootReducer from 'reducers'
 import { createBrowserHistory } from 'history'
 

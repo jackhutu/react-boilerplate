@@ -4,7 +4,13 @@
     "corejs": 2,
     "debug" : false,
     "targets": {
-      "browsers": ["> 5%","ie > 9"],
+      "browsers": [
+        "> 5%",
+        "ie > 9",
+        "iOS >= 8",
+        "Android >= 4",
+        "Firefox ESR",
+      ],
     }
   }], ["@babel/preset-react"]],
   "plugins": [

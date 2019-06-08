@@ -1,4 +1,4 @@
-import App from 'components/App'
+import App from 'pages/app'
 import Home from 'pages/home'
 import NotFound from 'pages/notfound'
 import ShopCart from 'pages/shopcart'
