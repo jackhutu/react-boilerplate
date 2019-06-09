@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from 'actions'
 import './index.less'
+import ProductList from './productList'
+import Cart from './cart'
 
 const mapStateToProps = state =>{
   return {
@@ -34,7 +36,11 @@ class ShopCart extends Component {
   render() {
     return (
       <div className="shopcart-box">
-        shopcart
+        <h2>Shopping Cart Example</h2>
+        <hr />
+        <ProductList />
+        <hr />
+        <Cart />      
       </div>
     )
   }
