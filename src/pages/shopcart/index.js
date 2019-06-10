@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-// @connect(mapStateToProps,mapDispatchToProps)
+@connect(mapStateToProps,mapDispatchToProps)
 class ShopCart extends Component {
   constructor(props){
     super(props)
@@ -46,4 +46,4 @@ class ShopCart extends Component {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ShopCart)
+export default ShopCart
