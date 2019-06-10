@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { checkout, removeFromCart } from 'actions'
-import { getTotal, getCartProducts, getCheckoutError, isCheckoutPending } from 'reducers'
+import { getTotal, getCartProducts, getCheckoutError, isCheckoutPending } from 'reducers/getters'
 import CartItem from './cartItem'
 
 const mapStateToProps = state =>({

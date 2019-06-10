@@ -3,27 +3,22 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { addToCart } from 'actions'
-import { getVisibleProducts } from 'reducers/products'
+import { getVisibleProducts } from 'reducers/getters'
 import ProductItem from './productItem'
 
-// const mapStateToProps = state =>{
-//   return {
-//     products: state.local
-//   }
-// }
+const mapStateToProps = state =>({
+  products: getVisibleProducts(state.products)
+})
 
-// const mapDispatchToProps = dispatch =>{
-//   return {
-//     actions: bindActionCreators(Actions, dispatch)
-//   }
-// }
+const mapDispatchToProps = dispatch =>({
+  addToCart: bindActionCreators(addToCart, dispatch)
+})
 
 class ProductList extends Component {
-
   static propTypes = {
-    //  // 可以指定一个数组由某一类型的元素组成
+    // 可以指定一个数组由某一类型的元素组成
     products: PropTypes.arrayOf(
-      //  // 可以指定一个对象由特定的类型值组成
+      // 可以指定一个对象由特定的类型值组成
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -52,7 +47,4 @@ class ProductList extends Component {
   }
 }
 
-export default connect(
-  state=>({products: getVisibleProducts(state.products)}),
-  {addToCart},
-)(ProductList)
+export default connect(mapStateToProps,mapDispatchToProps)(ProductList)

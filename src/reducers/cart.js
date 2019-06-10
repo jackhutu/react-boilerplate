@@ -55,10 +55,3 @@ export default combineReducers({
   quantityById,
 })
 
-export function getQuantity(state, productId) {
-  return state.quantityById[productId] || 0
-}
-
-export function getAddedIds(state) {
-  return Object.keys(state.quantityById)
-}
