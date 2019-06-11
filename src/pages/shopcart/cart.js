@@ -18,10 +18,8 @@ const mapDispatchToProps = dispatch =>({
   removeFromCart: bindActionCreators(removeFromCart, dispatch),
 })
 
-class Cart extends Component {
-  constructor(props){
-    super(props)
-  }
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Cart extends Component {
 
   static propTypes = {
     products: PropTypes.arrayOf(
@@ -79,4 +77,3 @@ class Cart extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)

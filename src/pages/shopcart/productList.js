@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch =>({
   addToCart: bindActionCreators(addToCart, dispatch)
 })
 
-class ProductList extends Component {
+@connect(mapStateToProps,mapDispatchToProps)
+export default class ProductList extends Component {
   static propTypes = {
     // 可以指定一个数组由某一类型的元素组成
     products: PropTypes.arrayOf(
@@ -47,4 +48,3 @@ class ProductList extends Component {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductList)

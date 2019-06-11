@@ -20,10 +20,7 @@ const mapDispatchToProps = dispatch =>{
 }
 
 @connect(mapStateToProps,mapDispatchToProps)
-class ShopCart extends Component {
-  constructor(props){
-    super(props)
-  }
+export default class ShopCart extends Component {
 
   static propTypes = {
     local: PropTypes.object.isRequired
@@ -45,5 +42,3 @@ class ShopCart extends Component {
     )
   }
 }
-
-export default ShopCart

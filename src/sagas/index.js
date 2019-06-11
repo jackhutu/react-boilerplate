@@ -2,6 +2,7 @@
 
 import { take, put, call, fork, select, takeEvery, all } from 'redux-saga/effects'
 import * as actions from 'actions'
+import * as types from 'actions/types'
 import { getCart } from 'reducers/getters'
 import { api } from '../services'
 
@@ -25,12 +26,12 @@ export function* watchGetProducts() {
     takeEvery will fork a new `getAllProducts` task on each GET_ALL_PRODUCTS actions
     i.e. concurrent GET_ALL_PRODUCTS actions are allowed
   */
-  yield takeEvery(actions.GET_ALL_PRODUCTS, getAllProducts)
+  yield takeEvery(types.GET_ALL_PRODUCTS, getAllProducts)
 }
 
 export function* watchCheckout() {
   while (true) {
-    yield take(actions.CHECKOUT_REQUEST)
+    yield take(types.CHECKOUT_REQUEST)
     /*
       ***THIS IS A BLOCKING CALL***
       It means that watchCheckout will ignore any CHECKOUT_REQUEST event until

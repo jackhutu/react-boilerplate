@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_TO_CART, REMOVE_FROM_CART, CHECKOUT_REQUEST, CHECKOUT_SUCCESS, CHECKOUT_FAILURE } from 'actions'
+import { ADD_TO_CART, REMOVE_FROM_CART, CHECKOUT_REQUEST, CHECKOUT_SUCCESS, CHECKOUT_FAILURE } from 'actions/types'
 
 const initialState = {
   checkoutStatus: {

@@ -17,11 +17,8 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-// @connect(mapStateToProps,mapDispatchToProps)
-class Home extends Component {
-  constructor(props){
-    super(props)
-  }
+@connect(mapStateToProps,mapDispatchToProps)
+export default class Home extends Component {
 
   static propTypes = {
     local: PropTypes.object.isRequired
@@ -43,5 +40,3 @@ class Home extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
