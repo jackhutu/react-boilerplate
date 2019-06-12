@@ -41,3 +41,7 @@ export function getCartProducts(state) {
     quantity: getQuantity(state.cart, id),
   }))
 }
+
+// async
+export const selectedRedditSelector = ({async}) => async.selectedReddit
+export const postsByRedditSelector = ({async}) => async.postsByReddit

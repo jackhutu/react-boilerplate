@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getCookie,signOut } from 'utils/auth'
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = false
 
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
@@ -29,3 +29,6 @@ axios.interceptors.response.use(function (response) {
 export const AuthResource = (method, id, data, api='auth') => {
   return axios[method](api + (id ? ('/' + id) : ''), data)
 }
+
+export const PublicResource = (method, url, params = {}) => axios[method](url, params)
+

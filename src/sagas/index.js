@@ -3,8 +3,8 @@
 import { take, put, call, fork, select, takeEvery, all } from 'redux-saga/effects'
 import * as actions from 'actions'
 import * as types from 'actions/types'
-import { getCart } from 'reducers/getters'
-import { api } from '../services'
+import { getCart,selectedRedditSelector, postsByRedditSelector } from 'reducers/getters'
+import api from 'api'
 
 export function* getAllProducts() {
   const products = yield call(api.getProducts)
@@ -48,6 +48,43 @@ export function* watchCheckout() {
   }
 }
 
+function fetchPostsApi(reddit){
+  return api.getRedditData(reddit).then(response => response.data)
+    .then(json => json.data.children.map(child => child.data))
+}
+
+export function* fetchPosts(reddit){
+  // 请求的结果还是从Action走
+  yield put(actions.requestPosts(reddit))
+  const posts = yield call(fetchPostsApi, reddit)
+  yield put(actions.receivePosts(reddit, posts))
+}
+
+// 监控async上的切换选项
+export function* watchAsyncOption(){
+  while (true){
+    const prevReddit = yield select(selectedRedditSelector)
+    yield take(types.SELECT_REDDIT)
+    const newReddit = yield select(selectedRedditSelector)
+    const postsByReddit = yield select(postsByRedditSelector)
+    // 调用接口
+    if(!postsByReddit[newReddit]) yield fork(fetchPosts, newReddit)
+  }
+}
+
+export function* invalidateReddit(){
+  while(true){
+    const { reddit } = yield take(types.INVALIDATE_REDDIT)
+    yield call(fetchPosts, reddit)
+  }
+}
+
 export default function* root() {
-  yield all([fork(getAllProducts), fork(watchGetProducts), fork(watchCheckout)])
+  yield all([
+    fork(getAllProducts), 
+    fork(watchGetProducts), 
+    fork(watchCheckout),
+    fork(watchAsyncOption),
+    fork(invalidateReddit)
+  ])
 }
