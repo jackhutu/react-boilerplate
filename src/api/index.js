@@ -5,12 +5,9 @@ const TIMEOUT = 100
 const MAX_CHECKOUT = 2 // max different items
 
 export default {
-  getApps:function () {
-    return AuthResource('get','getApps')
-  },
 
-  getIndexImage:function () {
-    return AuthResource('get', 'getIndexImage')
+  getIndexImg:function () {
+    return AuthResource('get', 'getIndeximg')
   }, 
 
   getRedditData: reddit => PublicResource('get', `https://www.reddit.com/r/${reddit}.json`),

@@ -79,9 +79,32 @@ export function* invalidateReddit(){
   }
 }
 
+function fetchImgApi(){
+  return api.getIndexImg().then(response => response.data)
+}
+
+export function* fetchImg(){
+  yield put(actions.getImageRequest())
+  try{
+    const img = yield call(fetchImgApi)
+    yield put(actions.getImageSuccess(img))
+  }catch(error){
+    yield put(actions.getImageFailure())
+  }
+
+}
+// 监控获取图片
+export function* watchGetImg(){
+  while(true){
+    yield take(types.GET_IMG)
+    yield fork(fetchImg)
+  }
+}
+
 export default function* root() {
   yield all([
     fork(getAllProducts), 
+    fork(watchGetImg),
     fork(watchGetProducts), 
     fork(watchCheckout),
     fork(watchAsyncOption),

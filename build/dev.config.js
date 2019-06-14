@@ -85,7 +85,7 @@ const config = {
     },
     proxy: {
       '/api': {
-        'target': 'http://yapi.demo.qunar.com/mock/70113/api',
+        'target': 'http://yapi.demo.qunar.com/mock/71519/api',
         'changeOrigin': true,
         logLevel: 'debug',
         'pathRewrite': {

@@ -4,7 +4,6 @@ import { routerMiddleware } from 'connected-react-router'
 import {persistState} from 'redux-devtools'
 import {createLogger} from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
-import promiseMiddleware from 'api/promiseMiddleware'
 import DevTools from 'components/devTools'
 import rootReducer from 'reducers'
 import { createBrowserHistory } from 'history'
@@ -13,7 +12,7 @@ export const sagaMiddleware = createSagaMiddleware()
 export const history = createBrowserHistory()
 export default function configureStore(initialState) {
 
-  const middleware = [ sagaMiddleware, promiseMiddleware, routerMiddleware(history) ]
+  const middleware = [ sagaMiddleware, routerMiddleware(history) ]
   if(__DEVLOGGER__){
     middleware.push(createLogger())
   }

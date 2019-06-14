@@ -26,7 +26,7 @@ axios.interceptors.response.use(function (response) {
 })
 
 
-export const AuthResource = (method, id, data, api='auth') => {
+export const AuthResource = (method, id, data, api='/api') => {
   return axios[method](api + (id ? ('/' + id) : ''), data)
 }
 

@@ -1,20 +1,39 @@
+import { combineReducers } from 'redux'
 import { 
-  GET_INDEX_IMG_SUCCESS,
-  GET_INDEX_IMG_FAILURE
+  GET_IMG_SUCCESS,
+  GET_IMG_FAILURE,
+  GET_IMG_REQUEST
 } from 'actions/types'
-
 import img from 'assets/images/shanghai.jpg'
 
-const initialState = {
-  indexImg: img
-}
 
-export default function(state = initialState, action) {
+function indexImg(state = {
+  loading: false,
+  value: ''
+}, action) {
   switch(action.type){
-    case GET_INDEX_IMG_SUCCESS:
-      return Object.assign({}, initialState, { indexImg: action.indexImg})
-    case GET_INDEX_IMG_FAILURE:
+    case GET_IMG_REQUEST:
+      return {
+        ...state,
+        loading:true,
+      }
+    case GET_IMG_SUCCESS:
+      return {
+        ...state,
+        loading:false,
+        value: action.img.data || img
+      }
+    case GET_IMG_FAILURE:
+      return {
+        ...state,
+        loading:false,
+        value: img
+      }
     default: 
       return state
   }
 }
+
+export default combineReducers({
+  indexImg,
+})

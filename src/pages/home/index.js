@@ -21,19 +21,23 @@ const mapDispatchToProps = dispatch =>{
 export default class Home extends Component {
 
   static propTypes = {
-    local: PropTypes.object.isRequired
+    local: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
   }
 
   componentDidMount() {
-
+    const { actions } = this.props
+    actions.getImage()
   }
 
   render() {
     const {local} = this.props
-    let styles = { backgroundImage: 'url(' + local.indexImg + ')'}
+    let styles = { backgroundImage: 'url(' + local.indexImg.value + ')'}
     return (
       <div className="home-box">
         Hello World
+        <hr />
+        {local.indexImg.loading&&<span>图片加载中.....</span>}
         <div className="cover-img" style={styles}></div>
 
       </div>
