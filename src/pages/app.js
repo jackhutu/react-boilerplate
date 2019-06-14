@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from 'actions'
+import Nav from 'components/nav'
 
 const mapStateToProps = state =>{
   return {
@@ -29,6 +30,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Nav />
         {renderRoutes(this.props.route.routes)}
       </div>
     )

@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import configureStore, { history, sagaMiddleware } from './store/configureStore'
 import createDevTools from './createDevtools'
 import routes from './routes'
-import 'assets/styles/index.css'
+import 'assets/styles/index.less'
 import rootSaga from './sagas'
 
 const store = configureStore()
