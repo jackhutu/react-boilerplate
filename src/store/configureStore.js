@@ -1,5 +1,4 @@
 import { createStore,compose,applyMiddleware } from 'redux'
-// import thunkMiddleware from 'redux-thunk'
 import { routerMiddleware } from 'connected-react-router'
 import {persistState} from 'redux-devtools'
 import {createLogger} from 'redux-logger'
